@@ -159,3 +159,112 @@ while True:
 
     # 게임을 계속 실행합니다.
     wn.update()
+
+# 소수를 구하시오 함수 응용
+
+# def fn_prime_input():
+#     p_lst = []
+#     p1_num = int(input("시작 숫자를 입력하세요. :"))
+#     p2_num = int(input("범위 숫자를 입력하세요. :"))
+#     p_lst.append(p1_num)
+#     p_lst.append(p2_num)
+#     return p_lst
+
+# def fn_prime_check(user_input):
+#     lst = []
+#     for i in range(user_input[0],user_input[1]+1):
+#         cnt = 0        
+#         for a in range(2,i+1):
+#             if i % a == 0:
+#                 cnt += 1
+#         if cnt == 1:
+#             print(i,"는 소수입니다.")
+#         #     return True
+#         # else:
+#         #     return False
+
+#     # for i in range(2, prime_num+1):
+#     #     if prime_num % i == 0:
+#     #         div_count += 1
+#     # if div_count == 1:
+#     #     return True
+#     #     #print(prime_num,"는 소수가 아입입니다.")    
+#     # else:
+#     #     return False
+#     #     #print(prime_num,"는 소수입니다.")
+
+# def disply_result(user_input, i_num):
+#     if i_num == False:
+#         print(user_input,"는 소수가 아입입니다.")    
+#     else:
+#         print(user_input,"는 소수입니다.")    
+
+# def fn_prime():
+
+#     #prime_num = int(input("숫자를 입력하세요. :"))
+#     user_input = fn_prime_input()
+        
+#     i_num = fn_prime_check(user_input)
+
+#     disply_result(user_input, i_num)
+ 
+# fn_prime()
+
+def fn_input():
+    #return int(input("숫자 입력 : "))
+    while True:
+        try:
+            num = int(input("숫자 입력 : "))
+            return num
+        except ValueError:
+            print("숫자를 입력하세요.")
+        '''
+        num = input("숫자 입력 : ")
+        if num.isdigit():
+            return int(num)
+        else:
+            pass
+        '''
+
+def fn_prime(k):
+    cnt = 0
+    for i in range(2, k):
+        if k % i == 0:
+            cnt += 1
+    if cnt >= 1:
+        return 0
+    else:
+        return 1
+
+def fn_print(lst):
+    if 1 in lst:
+        lst.remove(1)
+    for i in lst:
+        print(i,"는 소수입니다.")
+
+def fn_try():
+    bCont = True
+    while bCont :
+        yn = input("Yes or No ? ")
+        if yn.strip() == "Y" or yn.strip() == "y":
+            return True
+        elif yn.strip() == "N" or yn.strip() == "n":
+            return False
+
+def fn_start():
+    bAgain = True
+    while bAgain:
+        n1 = fn_input()
+        n2 = fn_input()
+
+        lst = []
+        for i in range(n1,n2+1):
+            b = fn_prime(i)
+            if b == 1:
+                lst.append(i)
+
+        fn_print(lst)
+
+        bAgain = fn_try()
+
+fn_start()
